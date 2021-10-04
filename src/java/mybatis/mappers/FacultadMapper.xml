@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+     <select id="getAllFaculdades" resultType="pojo.Facultad">
+        SELECT * FROM facultad
+    </select>
+    
+     <select id="getAllFacultadById" resultType="pojo.Facultad" parameterType="int">
+        SELECT * FROM facultad WHERE idFacultad= #{idFacultad}
+    </select>
+    
+     <insert id="registrar" parameterType="pojo.Facultad">
+        INSERT INTO facultad (idFacultad,nombre) VALUES (#{idFacultad},#{nombre}); 
+    </insert>
+    
+    <update id="editarFacultad" parameterType="pojo.Facultad">
+        UPDATE usuario SET usuario.nombre=#{nombre}
+        WHERE usuario.idFacultad=#{idFacultad}         
+    </update>
+    <delete id="eliminar" parameterType="int">
+        DELETE FROM facultad WHERE idFacultad =#{idFacultad}
+    </delete>
+    
+</root>
